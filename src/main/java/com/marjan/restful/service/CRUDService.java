@@ -9,7 +9,7 @@ public interface CRUDService<E> {
 
 	E getById(Serializable id);
 
-	List<E> getAll();
+	List<E> getAllq();
 
 	void delete(Serializable id);
 }

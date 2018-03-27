@@ -20,8 +20,8 @@ public class Task implements java.io.Serializable {
 	@Column(name = "id", unique = true, nullable = false)
 	private Long id;
 
-	@Column(name = "user_id", length = 50)
-	private int user_id;
+	@Column(name = "user_name", length = 50)
+	private String user_name;
 
 	@Column(name = "task", length = 50)
 	private String task;
@@ -36,15 +36,21 @@ public class Task implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Task(Long id, int user, String task, Boolean status) {
+	public Task(Long id, String user, String task, Boolean status) {
 		this.id = id;
-		this.user_id = user;
+		this.user_name = user;
 		this.task = task;
 		this.status = status;
 	}
 
-	public Task(int user, String task, Boolean status) {
-		this.user_id = user;
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
+	}
+
+
+
+	public Task(String user, String task, Boolean status) {
+		this.user_name = user;
 		this.task = task;
 		this.status = status;
 	}
@@ -57,12 +63,12 @@ public class Task implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public int getUser() {
-		return this.user_id;
+	public String getUser_name() {
+		return user_name;
 	}
 
-	public void setUser(String firstname) {
-		this.user_id = user_id;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
 	public String getTask() {
@@ -84,7 +90,7 @@ public class Task implements java.io.Serializable {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("Id: ").append(this.id).append(", user_id: ").append(this.user_id).append(", task: ")
+		sb.append("Id: ").append(this.id).append(", user_id: ").append(this.user_name).append(", task: ")
 				.append(this.task).append(", status: ").append(this.status);
 		return sb.toString();
 	}

@@ -58,7 +58,7 @@ public class TaskController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Task>> getAllTask() {
-		List<Task> tasks = TaskService.getAll();
+		List<Task> tasks = TaskService.getAllq();
 		if (tasks.isEmpty()) {
 			logger.debug("Tasks does not exists");
 			return new ResponseEntity<List<Task>>(HttpStatus.NO_CONTENT);

@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Users implements Serializable {
 
 	private static final long serialVersionUID = 1948638898199176136L;
-	
+
 	@Id
 	@Column(name = "username", unique = true, nullable = false, length = 100)
 	private String username;
@@ -26,7 +26,7 @@ public class Users implements Serializable {
 	public  Users() {
 		
 	}
-	
+
 	public Users(String username, String password, String role) {
 		this.username = username;
 		this.password = password;

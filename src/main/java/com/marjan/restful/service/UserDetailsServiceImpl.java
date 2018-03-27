@@ -39,12 +39,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	/**
 	 * Add some users at application startup for testing
 	 */
-	@PostConstruct
-	public void loadUsers() {
-		List<Users> users = Arrays.asList(
-							new Users("user", "password", "USER"),
-							new Users("admin", "password", "ADMIN"));
-		usersRepository.save(users);
-	}
+
 
 }
