@@ -30,9 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception { 
 	  http.csrf().disable()
 	  	.authorizeRequests()
-	  	.antMatchers(HttpMethod.POST, "/task/**").hasAnyAuthority("ADMIN")
-	  	.antMatchers(HttpMethod.PUT, "/task/**").hasAnyAuthority("ADMIN")
-	  	.antMatchers(HttpMethod.DELETE, "/task/**").hasAnyAuthority("ADMIN")
 	  	.anyRequest().authenticated()
 		.and().httpBasic()
 		.realmName(REALM_NAME).authenticationEntryPoint(getBasicAuthEntryPoint())

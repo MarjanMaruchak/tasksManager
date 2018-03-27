@@ -11,8 +11,7 @@ import java.util.List;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
-    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    @Query(value = "SELECT * FROM task WHERE task.user_name = 'admin' ", nativeQuery = true)
+    @Query(value = "SELECT * FROM task WHERE task.user_name = 'admin' "   , nativeQuery = true)
     List<Task> getAllq();
 
 }

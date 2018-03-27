@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,7 +60,9 @@ public class TaskController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Task>> getAllTask() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		List<Task> tasks = TaskService.getAllq();
+		System.out.print("avbsbsbszbb = "+authentication.getName());
 		if (tasks.isEmpty()) {
 			logger.debug("Tasks does not exists");
 			return new ResponseEntity<List<Task>>(HttpStatus.NO_CONTENT);
